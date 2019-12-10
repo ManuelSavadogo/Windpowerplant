@@ -1,17 +1,22 @@
 #import csv data
 
-#usr/venv/binpython
- #-*- coding: utf-8 -*-
-
-
 import csv
-import matplotlib.py
+import os
+import sys
+city = input("Enter City ")
+with open(city) as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            print(f'Column names are {", ".join(row)}')
+            line_count += 1
+        else:
+            print(f'Start: {row[0]} End: {row[1]} Pace: {row[2]} m/s')
 
+            line_count += 1
 
-p = Path(/Users/manuelsavadogo/Desktop/PycharmProjects/Windkraftanlage/daressalam_-6.8161_39.2804.csv)
-with p.open('r') as file:
-   mycsv = csv.reader(file)
-   header_row = next(reader)
+    print('\n')
 
-for index, column_header in enumerate(header_row):
-    print(index, column_header)
+    print(f'Processed {line_count} lines.')
+
